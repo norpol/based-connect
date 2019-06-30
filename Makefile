@@ -9,6 +9,8 @@ OBJECTS = $(SOURCES:.c=.o)
 DEPENDS = $(OBJECTS:.o=.d)
 EXEC = based-connect
 
+debug: CCFLAGS += -ggdb -DDEBUG
+debug: $(EXEC)
 
 $(EXEC): $(OBJECTS)
 	$(CC) -o $@ $^ $(LDFLAGS)
